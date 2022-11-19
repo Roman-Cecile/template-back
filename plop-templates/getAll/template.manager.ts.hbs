@@ -1,0 +1,17 @@
+import { {{ pascalCase resource }} } from "@urbasolar_dev/urbaconnect-types";
+
+import { {{ pascalCase resource }}sService } from "../services/{{ dotCase resource }}s.service";
+
+export class {{ pascalCase resource }}sManager {
+  private {{ camelCase resource }}sService: {{ pascalCase resource }}sService;
+
+  constructor() {
+      this.{{ camelCase resource }}sService = new {{ pascalCase resource }}sService();
+  }
+
+  public async get{{ pascalCase resource }}s(): Promise<{{ pascalCase resource }}[]> {
+    return this.{{ camelCase resource }}sService.get{{ pascalCase resource }}s();
+  }
+
+  // --APPEND PLOP MANAGER HERE--
+}

@@ -1,0 +1,26 @@
+import { NextFunction, Response } from "express";
+
+// --APPEND PLOP CONTROLLER IMPORT HERE--
+import { {{ pascalCase resource }}sManager } from "../managers/{{ dotCase resource }}s.manager";
+
+/**
+ * Controller, used to manage requests and responses
+ */
+export class {{ pascalCase resource }}sController {
+  private {{ camelCase resource }}sManager: {{ pascalCase resource }}sManager;
+
+  constructor() {
+    this.{{ camelCase resource }}sManager = new {{ pascalCase resource }}sManager();
+  }
+
+  public async get{{ pascalCase resource }}s(req: any, res: Response, next: NextFunction) {
+    try {
+      const {{ camelCase resource }}s = await this.{{ camelCase resource }}sManager.get{{ pascalCase resource }}s();
+      res.status(200).json({{ camelCase resource }}s);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // --APPEND PLOP CONTROLLER HERE--
+}

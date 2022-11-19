@@ -1,0 +1,10 @@
+
+  public async get{{ pascalCase resource }}ById(id: {{ pascalCase resource }}["id"]): Promise<{{ pascalCase resource }}> {
+    try {
+      const result: AxiosResponse = await this.api.get(`/{{kebabCase resource}}s/${id}`);
+      return result.data;
+    } catch (error) {
+      log.error(`Error when getting a {{ pascalCase resource }} with id ${id} and error ${error}`);
+      throw error;
+    }
+  }

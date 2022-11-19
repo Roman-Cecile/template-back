@@ -1,0 +1,16 @@
+
+  public async insert{{ pascalCase resource }}({{ camelCase resource }}: Partial<{{ pascalCase resource }}>): Promise<{{ pascalCase resource }}> {
+    try {
+      const result: AxiosResponse = await this.api.post(
+        `/{{kebabCase resource}}s`,
+        {{ camelCase resource }}
+      );
+      return result.data;
+    } catch (error) {
+      log.error(`Error in insert{{ pascalCase resource }} : ${error}`);
+      if ((error as AxiosError)?.response?.status === 409) {
+        throw new ConflictException();
+      }
+      throw error;
+    }
+  }

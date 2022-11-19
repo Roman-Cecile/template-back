@@ -1,0 +1,19 @@
+
+  public async update{{ pascalCase resource }}ById(req: any, res: Response, next: NextFunction) {
+    try {
+      const {{ camelCase resource }}Id = req.params.id;
+      const {{ camelCase resource }}Data = req.body;
+      if (!{{ camelCase resource }}Data) {
+        throw new InvalidParameterException(
+          "Missing body - {{ camelCase resource }}Data required"
+        );
+      }
+      const {{ camelCase resource }} = await this.{{ camelCase resource }}sManager.update{{ pascalCase resource }}ById(
+          {{ camelCase resource }}Id,
+          {{ camelCase resource }}Data
+      );
+      res.status(200).json({{ camelCase resource }});
+    } catch (error) {
+      next(error);
+    }
+  }

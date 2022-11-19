@@ -1,0 +1,12 @@
+
+  public async update{{ pascalCase resource }}ById(id: {{ pascalCase resource }}["id"],{{ camelCase resource }}Data: Partial< {{ pascalCase resource }}>): Promise<{{ pascalCase resource }}> {
+    try {
+      const result: AxiosResponse = await this.api.put(`/{{kebabCase resource}}s/${id}`, {{ camelCase resource }}Data);
+      return result.data;
+    } catch (error) {
+      log.error(
+        `Error when updating a {{ pascalCase resource }} with id ${id} and error ${error}`
+      );
+      throw error;
+    }
+  }

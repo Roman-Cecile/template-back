@@ -1,0 +1,10 @@
+
+  public async delete{{ pascalCase resource }}ById(req: any, res: Response, next: NextFunction) {
+    try {
+      const id = req.params.id;
+      await this.{{ camelCase resource }}sManager.delete{{ pascalCase resource }}ById(id);
+      res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  }

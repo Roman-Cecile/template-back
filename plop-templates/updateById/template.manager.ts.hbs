@@ -1,0 +1,7 @@
+
+  public async update{{ pascalCase resource }}ById(
+    {{ camelCase resource }}Id: {{ pascalCase resource }}["id"],
+    {{ camelCase resource }}Data: Partial< {{ pascalCase resource }}>
+  ): Promise<{{ pascalCase resource }}> {
+    return this.{{ camelCase resource }}sService.update{{ pascalCase resource }}ById({{ camelCase resource }}Id, {{ camelCase resource }}Data);
+  }

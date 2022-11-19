@@ -1,0 +1,4 @@
+
+  public async get{{ pascalCase resource }}ById(id: {{ pascalCase resource }}["id"]): Promise<{{ pascalCase resource }}> {
+    return this.{{ camelCase resource }}sDao.get{{ pascalCase resource }}ById(id);
+  }

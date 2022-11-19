@@ -1,0 +1,17 @@
+import { {{ pascalCase resource }} } from "@urbasolar_dev/urbaconnect-types";
+
+import { {{ pascalCase resource }}sDao } from "../dao/{{ dotCase resource }}s.dao";
+
+export class {{ pascalCase resource }}sService {
+  private {{ camelCase resource }}sDao: {{ pascalCase resource }}sDao;
+
+  constructor() {
+    this.{{ camelCase resource }}sDao = new {{ pascalCase resource }}sDao();
+  }
+
+  public async get{{ pascalCase resource }}s(): Promise<{{ pascalCase resource }}[]> {
+    return this.{{ camelCase resource }}sDao.get{{ pascalCase resource }}s();
+  }
+
+  // --APPEND PLOP SERVICE HERE--
+}

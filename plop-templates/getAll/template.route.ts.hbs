@@ -1,0 +1,46 @@
+import { Router } from "express";
+
+import { {{ pascalCase resource }}sController } from "../controllers/{{ dotCase resource }}s.controller";
+
+export class {{ pascalCase resource }}sRoute {
+  private api: Router = Router();
+  private readonly {{ camelCase resource }}sController: {{ pascalCase resource }}sController;
+
+  constructor() {
+    this.{{ camelCase resource }}sController = new {{ pascalCase resource }}sController();
+    this.routes();
+  }
+
+  public getApi(): Router {
+    return this.api;
+  }
+
+  private routes(): void {
+    /**
+     * @swagger
+     * /api/{{ kebabCase resource }}s/:
+     *   get:
+     *     tags: ["{{ pascalCase resource }}s"]
+     *     summary: Get all {{ sentenceCase resource }}s
+     *     security:
+     *      - bearerAuth: []
+     *     produces:
+     *      - application/json
+     *     responses:
+     *       200:
+     *         description: Success - array of {{ sentenceCase resource }}s
+     *       400:
+     *         description: Malformed request syntax
+     *       401:
+     *         description: Unauthorized
+     *       500:
+     *         description: Error during query execution
+     */
+    this.api.get(
+      "/",
+      this.{{ camelCase resource }}sController.get{{ pascalCase resource }}s.bind(this.{{ camelCase resource }}sController)
+    );
+
+    // --APPEND PLOP ROUTE HERE--
+  }
+}

@@ -1,0 +1,32 @@
+
+    /*
+     * @swagger
+     * /api/{{ kebabCase resource }}s/{id}:
+     *   put:
+     *     tags: ["{{ pascalCase resource }}s"]
+     *     summary: update one {{ sentenceCase resource }} by id
+     *     security:
+     *      - bearerAuth: []
+     *     parameters:
+     *      - in: path
+     *        name: id
+     *        type: number
+     *        required: true
+     *        description: id of the {{ camelCase resource }} to update
+     *      - in: body
+     *        name: {{ camelCase resource }}Data
+     *        type: object
+     *        required: true
+     *     produces:
+     *      - application/json
+     *     responses:
+     *       200:
+     *         description: Success - {{ sentenceCase resource }}
+     *       400:
+     *         description: Malformed request syntax
+     *       401:
+     *         description: Unauthorized
+     *       500:
+     *         description: Error during query execution
+     */
+    this.api.put("/:id", this.{{ camelCase resource }}sController.update{{ pascalCase resource }}ById.bind(this.{{ camelCase resource }}sController));

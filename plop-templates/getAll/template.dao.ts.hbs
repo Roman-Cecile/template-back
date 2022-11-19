@@ -1,0 +1,28 @@
+import { {{ pascalCase resource }} } from "@urbasolar_dev/urbaconnect-types";
+import { AxiosResponse } from "axios";
+
+// --APPEND PLOP DAO IMPORT HERE--
+import { BadGatewayException } from "../types/exceptions/badgateway.exception";
+import serverApi from "../config/api/server.api";
+import configApi from "../config/api/config.api";
+import log from "../utilities/logs/log";
+
+export class {{ pascalCase resource }}sDao {
+  private api: serverApi;
+
+  constructor() {
+    this.api = new serverApi(configApi);
+  }
+
+  public async get{{ pascalCase resource }}s(): Promise<{{ pascalCase resource }}[]> {
+    try {
+      const result: AxiosResponse = await this.api.get("/{{kebabCase resource}}s");
+      return result.data;
+    } catch (error) {
+      log.error(`Error in get{{ pascalCase resource }}s : ${error}`);
+      throw new BadGatewayException();
+    }
+  }
+
+  // --APPEND PLOP DAO HERE--
+}

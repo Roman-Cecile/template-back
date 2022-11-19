@@ -1,0 +1,10 @@
+
+  public async get{{ pascalCase resource }}(req: any, res: Response, next: NextFunction) {
+      try {
+        const {{ camelCase resource }}Id = req.params.id;
+        const {{ camelCase resource }} = await this.{{ camelCase resource }}sManager.get{{ pascalCase resource }}ById({{ camelCase resource }}Id);
+        res.status(200).json({{ camelCase resource }});
+      } catch (error) {
+        next(error);
+      }
+    }

@@ -1,0 +1,13 @@
+
+  public async insert{{ pascalCase resource }}(req: any, res: Response, next: NextFunction) {
+    try {
+      const {{camelCase resource}}ToInsert = req.body;
+      if (!{{camelCase resource}}ToInsert) {
+        throw new InvalidParameterException("Missing body - new{{ pascalCase resource }} required");
+      }
+      const {{ camelCase resource }}Inserted = await this.{{ camelCase resource }}sManager.insert{{ pascalCase resource }}({{ camelCase resource }}ToInsert);
+      res.status(201).json({{ camelCase resource }}Inserted);
+    } catch (error) {
+      next(error);
+    }
+  }

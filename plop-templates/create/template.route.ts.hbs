@@ -1,0 +1,30 @@
+ 
+    /*
+     * @swagger
+     * /api/{{ kebabCase resource }}s/:
+     *   post:
+     *     tags: ["{{ pascalCase resource }}s"]
+     *     summary: create one {{ sentenceCase resource }}
+     *     security:
+     *      - bearerAuth: []
+     *     parameters:
+     *      - in: body
+     *        name: new{{ pascalCase resource }}
+     *        type: object
+     *        required: true
+     *        description: {{ sentenceCase resource }} to create
+     *     produces:
+     *      - application/json
+     *     responses:
+     *       200:
+     *         description: Success
+     *       400:
+     *         description: Malformed request syntax
+     *       401:
+     *         description: Unauthorized
+     *       500:
+     *         description: Error during query execution
+     */
+    this.api.post(
+        "/",
+        this.{{ camelCase resource }}sController.insert{{ pascalCase resource }}.bind(this.{{ camelCase resource }}sController));

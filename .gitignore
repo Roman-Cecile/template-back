@@ -1,0 +1,13 @@
+*.iml
+*.log
+
+dist/
+node_modules/
+coverage/
+
+tslint-to-esling-config.log
+.eslintcache
+
+.env
+
+.DS_Store

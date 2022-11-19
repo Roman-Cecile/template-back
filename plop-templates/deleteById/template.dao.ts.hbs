@@ -1,0 +1,15 @@
+
+  public async delete{{ pascalCase resource }}ById(id: {{ pascalCase resource }}["id"]): Promise<void> {
+    try {
+      return this.api.delete(`/{{ kebabCase resource }}s/${id}`);
+    } catch (error) {
+      log.error(`Error in delete{{ pascalCase resource }} : ${error}`);
+      if ((error as AxiosError)?.response?.status === 403) {
+        throw new ForbiddenException();
+      }
+      if ((error as AxiosError)?.response?.status === 404) {
+        throw new DataNotFoundException();
+      }
+      throw new BadGatewayException();
+    }
+  }

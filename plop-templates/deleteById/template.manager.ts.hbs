@@ -1,0 +1,4 @@
+
+  public async delete{{ pascalCase resource }}ById(id: {{ pascalCase resource }}["id"]): Promise<void> {
+    return this.{{ camelCase resource }}sService.delete{{ pascalCase resource }}ById(id);
+  }
